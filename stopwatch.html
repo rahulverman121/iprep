@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>StopWatch</title>
+<link rel="icon" href="./watch.png" type="icon/png">
+<style>
+* {
+margin : 0 ;
+}
+header {
+	height : 3.5rem ;
+	display : flex ;
+	align-items : center ;
+	background : rgb(226, 32, 32) ;
+	color : white ;
+	padding : 1rem 2rem ;
+	
+}
+main {
+       background : rgb(225,225,205);
+       color : black ;
+       display : flex ;
+       align-items: center;
+       justify-content : center;
+       padding : 4rem 0;
+}
+.wrapper {
+       border : 0.1rem solid black ;
+       padding : 2.5rem ;
+       border-radius : 1rem ;
+       box-shadow : 0 0 1rem black;
+       background : rgba(255,255,255,0.9);
+       display : flex ;
+       flex-direction : column ;
+       
+       align-items : center;
+}
+
+#timer {
+       font-size : 9.5rem ;
+       margin : 2rem ;
+       margin-bottom : 5rem ;
+       cursor : not-allowed ;
+}
+.btn {
+       padding : 0.7rem 1.4rem;
+       font-size : 1.2rem ;
+       margin : 0 1rem ;
+       cursor : pointer ;
+}
+footer {
+	height : 5.5rem ;
+	bottom : 0 ;
+	background : black ; 
+	color : white ;
+	display : flex ;
+	flex-direction : column ;
+	justify-content : center ;
+	align-items : center ;
+}
+</style>
+<body>
+<header>
+<h1>Stop Watch</h1>
+</header>
+<main>
+
+<section class="wrapper">
+
+<p id="timer"><span id="seconds">00</span>:<span id="tens">00</span></p>
+<div id="btns">
+<button class="btn" id="start">Start</button>
+<button class="btn" id="stop">Stop</button>
+<button class="btn" id="reset">Reset</button>
+</div>
+</section> 
+
+<script>
+window.onload = function () {  
+  var seconds = 00; 
+  var tens = 00; 
+  var appendTens = document.getElementById("tens")
+  var appendSeconds = document.getElementById("seconds")
+  var start = document.getElementById('start');
+  var stop = document.getElementById('stop');
+  var reset = document.getElementById('reset');
+  var Interval ;
+
+  start.onclick = function() {  
+    clearInterval(Interval);
+     Interval = setInterval(startTimer, 10);
+  }
+    stop.onclick = function() {
+       clearInterval(Interval);
+  }
+  reset.onclick = function() {
+     clearInterval(Interval);
+    tens = "00";
+  	seconds = "00";
+    appendTens.innerHTML = tens;
+  	appendSeconds.innerHTML = seconds;
+  }
+  function startTimer () {
+    tens++; 
+    if(tens <= 9){
+      appendTens.innerHTML = "0" + tens;
+    }
+    if (tens > 9){
+      appendTens.innerHTML = tens;   
+    }     
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+  }
+}
+</script>
+</main>
+<footer>
+Designed & Developed By RAHUL VERMAN
+<div>2022 | INDIA</div>
+</footer>
+</body>
+</html>

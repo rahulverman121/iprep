@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>Calculator</title>
+<link rel="icon" href="./calci.png" type="icon/png">
+
+<style>
+* {
+	margin : 0rem ;
+}
+header {
+	height : 3.5rem ;
+	display : flex ;
+	align-items : center ;
+	background : rgb(32, 129, 226) ;
+	color : white ;
+	padding : 1rem 2rem ;
+	margin-bottom : 3rem ;
+}
+main {
+	display : flex ;
+	justify-content : center ;
+	margin : 4.5rem 0 ;
+}
+.calci {
+	width : 16rem ;
+	border : 0.1rem solid black ;
+	padding : 2.5rem ;
+	border-radius : 2rem ;
+}
+form {
+	display : flex ;
+	
+}
+input[type="text"] {
+	width : 6.5rem ;
+	height : 3.2rem;
+	margin-bottom : 0.5rem ;
+}
+.btn {
+	font-weight : 700 ;
+	font-size : 1.3rem ;
+	padding : 1rem ;
+	
+	width : 3.5rem ;
+}
+#ope {
+	font-weight : 700 ;
+	font-size : 1.3rem ;
+	padding : 0.4rem
+}
+footer {
+	height : 5.5rem ;
+	bottom : 0 ;
+	background : black ; 
+	color : white ;
+	display : flex ;
+	flex-direction : column ;
+	justify-content : center ;
+	align-items : center ;
+}
+</style>
+<script>
+var field;
+function setfield(num) {
+	field = "null";
+	field = document.getElementById(num);
+}
+function setope(op) {
+	document.getElementById("ope").innerHTML= op;
+}
+function printt(n) {
+	field.value += n;
+}
+function calculate() {
+	var val1 = null;
+	var val2 = null ; 
+	val1 = parseFloat(document.getElementById("num1").value);
+	val2 = parseFloat(document.getElementById("num2").value);
+	oper = document.getElementById("ope").innerHTML;
+	if (oper == "+") {
+		document.getElementById("res").innerHTML =val1 + val2;	
+	}
+	if (oper == "-") {
+		document.getElementById("res").innerHTML =val1 - val2;
+	}
+	if (oper == "*") {
+		document.getElementById("res").innerHTML =val1 * val2;
+	}
+	if (oper == "/") {
+		document.getElementById("re").innerHTML =val1 / val2;
+	}
+}
+</script>
+</head>
+<body>
+<header>
+<h1>Calculator</h1>
+</header>
+<main>
+<section class="calci">
+<form>
+<input type="text" placeholder="Value 1" id="num1" onclick=setfield('num1') autofocus>
+<p id="ope">+</p>
+<input type="text" placeholder="Value 2" id=num2 onclick=setfield('num2')>
+
+</form>
+<p id="res"></p>
+<div>
+<button class="btn" onclick=printt('1')>1</button>
+<button class="btn" onclick=printt('2') >2</button>
+<button class="btn" onclick=printt('3')>3</button>
+<button class="btn" onclick=setope('+')>+</button>
+</div>
+
+<div>
+<button class="btn" onclick=printt('4')>4</button>
+<button class="btn" onclick=printt('5')>5</button>
+<button class="btn" onclick=printt('6')>6</button>
+<button class="btn" onclick=setope('-')>-</button>
+</div>
+<div>
+<button class="btn" onclick=printt('7')>7</button>
+<button class="btn" onclick=printt('8')>8</button>
+<button class="btn" onclick=printt('9')>9</button>
+<button class="btn" onclick=setope('*')>*</button>
+</div>
+<div>
+<button class="btn" onclick=printt('0')>0</button>
+<button class="btn" onclick=printt('00')>00</button>
+<button class="btn" onclick=printt('.')>.</button>
+<button class="btn" onclick=setope('/')>/</button>
+</div>
+<div>
+<button class="btn" onclick="" style="width:11rem">Clr</button>
+<button class="btn" onclick=calculate()>=</button>
+</div>
+</section>
+</main>
+<footer>
+Designed & Developed By RAHUL VERMAN
+<div>2022 | INDIA</div>
+</footer>
+
+
+</body
+</html>
